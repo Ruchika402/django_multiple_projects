@@ -1,0 +1,52 @@
+# In your firstpage directory, create .gitignore
+cat > .gitignore << EOL
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+.Python
+
+# Virtual Environment
+.venv/
+venv/
+
+env/
+
+# Database
+*.sqlite3
+db.sqlite3
+
+# Django
+*.log
+*.pot
+*.pyc
+local_settings.py
+
+# IDE
+.vscode/
+.idea/
+*.swp
+*.swo
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Environment variables
+.env
+.env.local
+
+# Media/Static files
+media/
+staticfiles/
+
+# pytest
+.pytest_cache/
+EOL
+
+# folders
+documentation/
+myapp/
+polls/
+config/
