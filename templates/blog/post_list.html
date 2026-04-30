@@ -1,0 +1,65 @@
+{% extends "base.html" %}
+
+{% block title %}Blog Posts{% endblock %}
+
+{% block header %}📝 Blog Posts{% endblock %}
+
+{% block content %}
+    <h2>Latest Articles</h2>
+
+    <!-- IF/ELSE Tag Example -->
+    {% if posts %}
+        <p>✨ Found {{ posts|length }} post(s) for you!</p>
+        
+        <!-- FOR Loop Tag Example -->
+        <div class="posts-container">
+            {% for post in posts %}
+                <article class="post" style="
+                    background-color: white;
+                    padding: 20px;
+                    margin-bottom: 20px;
+                    border-radius: 8px;
+                    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+                ">
+                    <h3>{{ post.title }}</h3>
+                    <p class="meta">
+                        Published on: {{ post.published_date|date:"D, d M Y" }} || 
+                        Author: {{ post.author }}
+                    </p>
+                    <p>{{ post.summary }}</p>
+                    
+                    <!-- IF Tag with even/odd row styling -->
+                    {% if post.is_new %}
+                        <span class="badge">NEW!</span>
+                    {% endif %}
+                        {% if forloop.first %}
+                            <p style="color: green;">🌟 Latest Post!</p>
+                        {% elif forloop.last %}
+                            <p style="color: orange;">📌 Oldest Post</p>
+                        {% endif %}
+                    
+                    
+                    
+                    <a href="#" style="color: #0066cc;">Read more →</a>
+                </article>
+            {% empty %}
+                <!-- This runs if the list is empty -->
+                <p>No blog posts available yet. Check back soon!</p>
+            {% endfor %}
+        </div>
+        
+        <!-- Another IF Example - Post Count Summary -->
+        {% if posts|length > 5 %}
+            <div style="background-color: #e8f4f8; padding: 10px; border-radius: 5px;">
+                <p>🔥 We have more than {{ posts|length }} posts! Keep scrolling.</p>
+            </div>
+        {% elif posts|length > 0 %}
+            <div style="background-color: #f0f0f0; padding: 10px; border-radius: 5px;">
+                <p>📖 Reading {{ posts|length }} amazing post(s)</p>
+            </div>
+        {% endif %}
+
+    {% else %}
+        <p>⚠️ No posts found. Please add some content!</p>
+    {% endif %}
+{% endblock %}
