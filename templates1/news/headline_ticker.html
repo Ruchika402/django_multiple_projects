@@ -1,0 +1,78 @@
+{% extends "base.html" %}
+{% load news_filters %}
+
+{% block title %}News Headlines{% endblock %}
+
+{% block content %}
+    <h1>📰 News Headline Ticker</h1>
+    
+    <!-- ✅ CORRECT with tag -->
+    {% with total_articles=headlines|length %}
+        <p>Total articles: {{ total_articles }}</p>
+    {% endwith %}
+
+    {% for article in headlines %}
+        <div style="border: 1px solid #ddd; padding: 15px; margin: 10px 0; border-radius: 5px;">
+            <h2>{{ article.title|headline_case }}</h2>
+            <p><strong>Category:</strong> {{ article.category|upper }}</p>
+            <p><strong>Published:</strong> {{ article.published_date|date:"F j, Y - g:i A" }}</p>
+            <p>{{ article.content|truncatechars:150 }}</p>
+            
+            <!-- ✅ CORRECT with tag for each article -->
+            {% with word_count=article.content|word_count %}
+                <p><small>📖 Word count: {{ word_count }} words | 👁️ {{ article.views }} views</small></p>
+            {% endwith %}
+            
+            {% if article.views > 50000 %}
+                <span style="background-color: #ff4444; color: white; padding: 3px 8px;">🔥 TRENDING</span>
+            {% elif article.views > 10000 %}
+                <span style="background-color: #ffd700; padding: 3px 8px;">⭐ POPULAR</span>
+            {% endif %}
+        </div>
+    {% endfor %}
+
+    <!-- ✅ CORRECT with tag with multiple variables -->
+    {% with title="Filter Demo" count=5 %}
+        <div style="background-color: #f0f0f0; padding: 15px; margin-top: 20px;">
+            <h3>{{ title }}</h3>
+            <p>Showing {{ count }} filter examples below</p>
+        </div>
+    {% endwith %}
+
+    <!-- Filter Demonstration Table -->
+    <div style="background-color: #f9f9f9; padding: 20px; margin-top: 20px; border: 1px solid #ddd;">
+        <h3>🔧 Template Filters Demo</h3>
+        <table style="width: 100%; border-collapse: collapse;">
+            <tr style="background-color: #ddd;">
+                <th style="padding: 10px;">Filter</th>
+                <th style="padding: 10px;">Example</th>
+                <th style="padding: 10px;">Output</th>
+            </tr>
+            <tr>
+                <td><code>upper</code></td>
+                <td><code>{{ "hello"|upper }}</code></td>
+                <td>{{ "hello"|upper }}</td>
+            </tr>
+            <tr style="background-color: #eee;">
+                <td><code>lower</code></td>
+                <td><code>{{ "HELLO"|lower }}</code></td>
+                <td>{{ "HELLO"|lower }}</td>
+            </tr>
+            <tr>
+                <td><code>truncatechars</code></td>
+                <td><code>{{ "Very long sentence here"|truncatechars:10 }}</code></td>
+                <td>{{ "Very long sentence here"|truncatechars:10 }}</td>
+            </tr>
+            <tr style="background-color: #eee;">
+                <td><code>word_count (custom)</code></td>
+                <td><code>{{ "Hello world from Django"|word_count }}</code></td>
+                <td>{{ "Hello world from Django"|word_count }} words</td>
+            </tr>
+            <tr>
+                <td><code>headline_case (custom)</code></td>
+                <td><code>{{ "this is a headline"|headline_case }}</code></td>
+                <td>{{ "this is a headline"|headline_case }}</td>
+            </tr>
+        </table>
+    </div>
+{% endblock %}
