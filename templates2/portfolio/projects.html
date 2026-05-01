@@ -1,0 +1,68 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block title %}My Projects{% endblock %}
+
+{% block content %}
+<div class="skills-section">
+    <h1 class="section-title">My Projects</h1>
+    <p style="text-align: center; margin-bottom: 2rem;">
+        Here are some of the projects I've worked on. Each project represents different skills and technologies.
+    </p>
+    
+    <div class="projects-grid">
+        <div class="project-card">
+            <div class="project-image">🛒</div>
+            <div class="project-info">
+                <h3 class="project-title">E-Commerce Platform</h3>
+                <p class="project-description">Full-featured online store with cart, payment integration, and admin dashboard.</p>
+                <div class="project-tech">
+                    <span class="tech-tag">Django</span>
+                    <span class="tech-tag">Stripe</span>
+                    <span class="tech-tag">PostgreSQL</span>
+                    <span class="tech-tag">Django REST</span>
+                </div>
+            </div>
+        </div>
+        
+        <div class="project-card">
+            <div class="project-image">💬</div>
+            <div class="project-info">
+                <h3 class="project-title">Real-time Chat App</h3>
+                <p class="project-description">Instant messaging application with WebSocket support and user presence.</p>
+                <div class="project-tech">
+                    <span class="tech-tag">Django Channels</span>
+                    <span class="tech-tag">Redis</span>
+                    <span class="tech-tag">JavaScript</span>
+                </div>
+            </div>
+        </div>
+        
+        <div class="project-card">
+            <div class="project-image">📝</div>
+            <div class="project-info">
+                <h3 class="project-title">Blog Platform</h3>
+                <p class="project-description">Multi-author blog with comments, categories, and SEO optimization.</p>
+                <div class="project-tech">
+                    <span class="tech-tag">Django</span>
+                    <span class="tech-tag">Bootstrap</span>
+                    <span class="tech-tag">CKEditor</span>
+                </div>
+            </div>
+        </div>
+        
+        <div class="project-card">
+            <div class="project-image">📊</div>
+            <div class="project-info">
+                <h3 class="project-title">Weather Dashboard</h3>
+                <p class="project-description">Weather forecasting app using external API with interactive maps.</p>
+                <div class="project-tech">
+                    <span class="tech-tag">Django</span>
+                    <span class="tech-tag">API Integration</span>
+                    <span class="tech-tag">Leaflet.js</span>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}

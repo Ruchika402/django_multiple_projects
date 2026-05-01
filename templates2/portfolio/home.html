@@ -1,0 +1,79 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block title %}Home - My Portfolio{% endblock %}
+
+{% block content %}
+<!-- Hero Section -->
+<div class="hero">
+    
+    
+    <img src="{% static 'portfolio/images/portfolio.jpg' %}" 
+         alt="Profile" 
+         class="profile-image">
+    
+    
+    <!-- Placeholder using CSS styling -->
+    <div class="profile-image" style="background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); 
+                                      display: inline-flex; 
+                                      align-items: center; 
+                                      justify-content: center;
+                                      font-size: 4rem;
+                                      color: white;">
+        👨‍💻
+    </div>
+    
+    <h1>Ruchika Adak</h1>
+    <p class="tagline">Full-Stack Django Developer</p>
+    <p class="bio">
+        I build beautiful, functional web applications with Django, Python, and modern web technologies.
+        Passionate about clean code and great user experiences.
+    </p>
+</div>
+
+<!-- Skills Section -->
+<div class="skills-section">
+    <h2 class="section-title">Technical Skills</h2>
+    <div class="skills-grid">
+        <div class="skill-card">Python</div>
+        <div class="skill-card">Django</div>
+        <div class="skill-card">JavaScript</div>
+        <div class="skill-card">HTML5/CSS3</div>
+        <div class="skill-card">PostgreSQL</div>
+        <div class="skill-card">Git/GitHub</div>
+        <div class="skill-card">REST APIs</div>
+        <div class="skill-card">Bootstrap</div>
+    </div>
+</div>
+
+<!-- Quick Projects Preview -->
+<div class="skills-section">
+    <h2 class="section-title">Featured Projects</h2>
+    <div class="projects-grid">
+        <div class="project-card">
+            <div class="project-image">📱</div>
+            <div class="project-info">
+                <h3 class="project-title">Task Manager App</h3>
+                <p class="project-description">A full-featured task management app with user authentication and real-time updates.</p>
+                <div class="project-tech">
+                    <span class="tech-tag">Django</span>
+                    <span class="tech-tag">Bootstrap</span>
+                    <span class="tech-tag">SQLite</span>
+                </div>
+            </div>
+        </div>
+        <div class="project-card">
+            <div class="project-image">📊</div>
+            <div class="project-info">
+                <h3 class="project-title">Analytics Dashboard</h3>
+                <p class="project-description">Interactive dashboard displaying real-time analytics with charts and graphs.</p>
+                <div class="project-tech">
+                    <span class="tech-tag">Django</span>
+                    <span class="tech-tag">Chart.js</span>
+                    <span class="tech-tag">Redis</span>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}

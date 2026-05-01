@@ -1,0 +1,39 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block title %}About Me{% endblock %}
+
+{% block content %}
+<div class="about-content">
+    <h1 class="section-title">About Me</h1>
+    
+    <div style="margin-bottom: 2rem;">
+        <p style="font-size: 1.1rem; line-height: 1.8;">
+            Hello! I'm John, a passionate Django developer with 3+ years of experience building 
+            web applications. I love creating solutions that solve real-world problems and make 
+            people's lives easier.
+        </p>
+    </div>
+
+    <h2 style="color: #667eea; margin-top: 2rem; margin-bottom: 1rem;">Experience</h2>
+    
+    <div class="experience-item">
+        <h3 class="experience-title">Senior Django Developer - TechCorp</h3>
+        <p class="experience-date">2022 - Present</p>
+        <p>Leading development of enterprise Django applications, mentoring junior developers, and architecting scalable solutions.</p>
+    </div>
+    
+    <div class="experience-item">
+        <h3 class="experience-title">Full-Stack Developer - StartupHub</h3>
+        <p class="experience-date">2020 - 2022</p>
+        <p>Built multiple client projects using Django, React, and PostgreSQL. Implemented CI/CD pipelines.</p>
+    </div>
+
+    <h2 style="color: #667eea; margin-top: 2rem; margin-bottom: 1rem;">Education</h2>
+    <div class="experience-item">
+        <h3 class="experience-title">BSc Computer Science</h3>
+        <p class="experience-date">2016 - 2020</p>
+        <p>University of Technology - Graduated with Honors</p>
+    </div>
+</div>
+{% endblock %}
